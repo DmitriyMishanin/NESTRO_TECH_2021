@@ -537,8 +537,8 @@ function init() {
     };
 
     jQuery.ajax({
-//        url: "http://dh.bitc.ru:8021/api/v1/nodes/"+nodeData.key+"/",
-        url: "http://127.0.0.1:8000/api/v1/nodes/"+nodeData.key+"/",
+        url: "http://dh.bitc.ru:8021/api/v1/nodes/"+nodeData.key+"/",
+//        url: "http://127.0.0.1:8000/api/v1/nodes/"+nodeData.key+"/",
         type: "PUT",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(data_request),
@@ -668,8 +668,8 @@ function onSelectionChanged() {
 }
 function load(){
   $.ajax({
-//    url: "http://dh.bitc.ru:8021/api/v1/nodesview/?format=json",
-    url: "http://127.0.0.1:8000/api/v1/nodesview/?format=json",
+    url: "http://dh.bitc.ru:8021/api/v1/nodesview/?format=json",
+//    url: "http://127.0.0.1:8000/api/v1/nodesview/?format=json",
     dataType: "html",
     success: function(data){
       //console.log(data);
@@ -683,8 +683,8 @@ function load(){
 }
 function reload(){
   $.ajax({
-//    url: "http://dh.bitc.ru:8021/api/v1/nodesview/?format=json",
-    url: "http://127.0.0.1:8000/api/v1/nodesview/?format=json",
+    url: "http://dh.bitc.ru:8021/api/v1/nodesview/?format=json",
+//    url: "http://127.0.0.1:8000/api/v1/nodesview/?format=json",
     dataType: "html",
     success: function(data){
       document.getElementById("mySavedModel").textContent = data;
@@ -699,8 +699,8 @@ function steptest(){
   $("#steptest").attr("disabled", "disabled");
   $("#steptest").html("Загрузка...");
   $.ajax({
-//    url: "http://dh.bitc.ru:8021/api/v1/steptest/?format=json",
-    url: "http://127.0.0.1:8000/api/v1/steptest/?format=json",
+    url: "http://dh.bitc.ru:8021/api/v1/steptest/?format=json",
+//    url: "http://127.0.0.1:8000/api/v1/steptest/?format=json",
     dataType: "json",
     success: function(data){
       console.log(data);
