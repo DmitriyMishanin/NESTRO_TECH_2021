@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.contrib.admin.helpers import ACTION_CHECKBOX_NAME
-from django.contrib.admin import helpers
 from django.conf import settings
 import os
 
@@ -8,12 +7,9 @@ from import_export.admin import ImportExportModelAdmin
 from import_export import resources
 
 from .models import Nodes, Edges, TestCaseNodes
-from .grstead import GStead
+from .grstead import GStead, grput_model, grget_model, steptest_model
 
 FILE_MODEL = 'monstability_model.xml'
-COLOR_GOOT = 'green'
-COLOR_WAR = 'orange'
-COLOR_ERR = 'red'
 
 class TestCaseNodesResource(resources.ModelResource):
     """Класс для импорта тест-кейса"""
@@ -37,81 +33,7 @@ class EdgesResource(resources.ModelResource):
         model = Edges
         fields = ('id', 'id_gr', 'source', 'target', 'weight', 'color')
 
-
-def grget_model(AG):
-    ''' загрузка графа из базы данных '''
-    qrND = Nodes.objects.all()
-    for ND in qrND:
-        AG.add_node(
-            ND.id_gr,
-            type=ND.type_gr,
-            label=ND.label_gr,
-            layer=ND.layer,
-            access=ND.access,
-            stead=ND.stead,
-            costdown=ND.costdown,
-            coordX=ND.coordX,
-            coordY=ND.coordY,
-            RTO=ND.RTO,
-            RPO=ND.RPO,
-            color=ND.color,
-        )
-    qrNE = Edges.objects.all()
-    for NE in qrNE:
-        AG.add_edge(
-            NE.source,
-            NE.target,
-            weight=NE.weight,
-            id=NE.id_gr,
-            color=NE.color,
-        )
-
-def get_color(access, stead):
-    ''' получить цвет узла '''
-    if not access or stead < 0.6:
-        return COLOR_ERR
-    elif stead < 0.9:
-        return COLOR_WAR
-    else:
-        return COLOR_GOOT
-
-def grput_model(AG):
-    ''' выгрузка графа в базу данных '''
-    if len(AG) > 0:
-        Nodes.objects.all().delete()
-        for node in AG.nodes.data():
-            nodecolor = get_color(node[1]['access'], node[1]['stead'])
-            ND = Nodes.objects.create(
-                id_gr=node[0],
-                label_gr=node[1]['label'],
-                type_gr=node[1]['type'],
-                layer=node[1]['layer'],
-                access=node[1]['access'],
-                stead=node[1]['stead'],
-                costdown=node[1]['costdown'],
-                coordX=node[1]['coordX'],
-                coordY=node[1]['coordY'],
-                RTO=node[1]['RTO'],
-                RPO=node[1]['RPO'],
-                # color=node[1]['color'],
-                color=nodecolor,
-            )
-            ND.save()
-
-        Edges.objects.all().delete()
-        for edge in AG.edges.data():
-            edgecolor = get_color(AG.nodes.data()[edge[0]]['access'], AG.nodes.data()[edge[0]]['stead'])
-            NE = Edges.objects.create(
-                source=edge[0],
-                target=edge[1],
-                id_gr=edge[2]['id'],
-                weight=edge[2]['weight'],
-                # color=edge[2]['color'],
-                color=edgecolor,
-            )
-            NE.save()
-
-
+# классы панели админисратора
 @admin.register(Nodes)
 class NodesAdmin(ImportExportModelAdmin):
     resource_class = NodesResource
@@ -172,6 +94,7 @@ class NodesAdmin(ImportExportModelAdmin):
         grput_model(gr.G)
     grcalc_RTORPO.short_description = 'Пересчитать RTO и RPO'
 
+
 @admin.register(Edges)
 class EdgesAdmin(ImportExportModelAdmin):
     resource_class = EdgesResource
@@ -180,8 +103,43 @@ class EdgesAdmin(ImportExportModelAdmin):
 #    list_filter = ('source', 'target',)
 
 
+# from django.urls import path
+# from django.utils.decorators import method_decorator
+# from django.views.decorators.http import require_POST
+
 @admin.register(TestCaseNodes)
 class TestCaseNodesAdmin(ImportExportModelAdmin):
     resource_class = TestCaseNodesResource
-    list_display = ('id', 'id_gr', 'access', 'stead', 'costdown')
+    list_display = ('id', 'step', 'id_gr', 'activestep', 'access', 'stead', 'costdown', 'RTO', 'RPO',)
     list_display_links = ('id_gr',)
+    actions = ['steptest',]
+    # change_list_template = 'change_list.html'
+
+    def changelist_view(self, request, extra_context=None):
+        ''' эмуляция выбора всех элементов списка '''
+
+        if 'action' in request.POST and request.POST['action'] in ('steptest',):
+            if not request.POST.getlist(ACTION_CHECKBOX_NAME):
+                post = request.POST.copy()
+                for u in Nodes.objects.all():
+                    post.update({ACTION_CHECKBOX_NAME: str(u.id)})
+                request._set_post(post)
+        return super(ImportExportModelAdmin, self).changelist_view(request, extra_context)
+
+    # def get_urls(self):
+    #     urls = super().get_urls()
+    #     info = self.get_model_info()
+    #     my_urls = [
+    #         path('steptest/',
+    #              # self.admin_site.admin_view(self.steptest),
+    #              self.steptest,
+    #              name='steptest',
+    #              ),
+    #     ]
+    #     return my_urls + urls
+
+    # @method_decorator(require_POST)
+    def steptest(self, request=None, queryset=None):
+        ''' выполняет шаг теста и устанавливает следующий '''
+        steptest_model()
+    steptest.short_description = "Выполнить очередной шаг теста"

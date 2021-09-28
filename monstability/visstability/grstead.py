@@ -22,12 +22,18 @@
 """
 
 import networkx as nx
+from django.db import transaction
+
+from .models import Nodes, Edges, TestCaseNodes
 
 TYPE_METRIC = 'metric'
 TYPE_SERVICE = 'service'
 TYPE_AND = 'and'
 TYPE_OR = 'or'
 
+COLOR_GOOT = 'green'
+COLOR_WAR = 'orange'
+COLOR_ERR = 'red'
 
 class GStead:
     """ Класс графа устойчивости """
@@ -127,6 +133,137 @@ class GStead:
             else:
                 access = access and self.G.nodes[u]['access']   # И доступностей входящих узлов для других узлов
         self.G.nodes[node_id]['access'] = access  # обновление доступности текущего узла
+
+
+# функции работы с моделью
+def grget_model(AG):
+    ''' загрузка графа из базы данных '''
+    qrND = Nodes.objects.all()
+    for ND in qrND:
+        AG.add_node(
+            ND.id_gr,
+            type=ND.type_gr,
+            label=ND.label_gr,
+            layer=ND.layer,
+            access=ND.access,
+            stead=ND.stead,
+            costdown=ND.costdown,
+            coordX=ND.coordX,
+            coordY=ND.coordY,
+            RTO=ND.RTO,
+            RPO=ND.RPO,
+            color=ND.color,
+        )
+    qrNE = Edges.objects.all()
+    for NE in qrNE:
+        AG.add_edge(
+            NE.source,
+            NE.target,
+            weight=NE.weight,
+            id=NE.id_gr,
+            color=NE.color,
+        )
+
+def get_color(access, stead):
+    ''' получить цвет узла '''
+    if not access or stead < 0.6:
+        return COLOR_ERR
+    elif stead < 0.9:
+        return COLOR_WAR
+    else:
+        return COLOR_GOOT
+
+def grput_model(AG):
+    ''' выгрузка графа в базу данных '''
+    if len(AG) > 0:
+        Nodes.objects.all().delete()
+        for node in AG.nodes.data():
+            nodecolor = get_color(node[1]['access'], node[1]['stead'])
+            ND = Nodes.objects.create(
+                id_gr=node[0],
+                label_gr=node[1]['label'],
+                type_gr=node[1]['type'],
+                layer=node[1]['layer'],
+                access=node[1]['access'],
+                stead=node[1]['stead'],
+                costdown=node[1]['costdown'],
+                coordX=node[1]['coordX'],
+                coordY=node[1]['coordY'],
+                RTO=node[1]['RTO'],
+                RPO=node[1]['RPO'],
+                # color=node[1]['color'],
+                color=nodecolor,
+            )
+            ND.save()
+
+        Edges.objects.all().delete()
+        for edge in AG.edges.data():
+            edgecolor = get_color(AG.nodes.data()[edge[0]]['access'], AG.nodes.data()[edge[0]]['stead'])
+            NE = Edges.objects.create(
+                source=edge[0],
+                target=edge[1],
+                id_gr=edge[2]['id'],
+                weight=edge[2]['weight'],
+                # color=edge[2]['color'],
+                color=edgecolor,
+            )
+            NE.save()
+
+def steptest_model():
+    ''' выполняет шаг теста и устанавливает следующий '''
+
+    result = {}
+    qrTC = TestCaseNodes.objects.all().order_by('step')
+    TC = qrTC[0]
+    for i in range(qrTC.count()):
+        if qrTC[i].activestep:
+            TC = qrTC[i]
+            try:
+                TCnext = qrTC[i+1]
+            except:
+                TCnext = qrTC[0]
+            break
+
+    try:
+        ND = Nodes.objects.get(id_gr=TC.id_gr)
+    except:
+        print(f"error: Nodes.objects.get(id_gr={TC.id_gr})")
+    else:
+        with transaction.atomic():
+            # заполнение ревизитов
+            if not TC.access is None:
+                ND.access = TC.access
+            if not TC.stead is None:
+                ND.stead = TC.stead
+            if not TC.costdown is None:
+                ND.costdown = TC.costdown
+            if not TC.RTO is None:
+                ND.RTO = TC.RTO
+            if not TC.RPO is None:
+                ND.RPO = TC.RPO
+            ND.save()
+
+            # персчет показателей
+            gr = GStead()
+            grget_model(gr.G)
+            gr.calc_node_stead(node_id=TC.id_gr)
+            gr.calc_costdown(node_id=TC.id_gr)
+            gr.calc_RTORPO(node_id=TC.id_gr)
+            grput_model(gr.G)
+
+            # изменение шага
+            TC.activestep = False
+            TC.save()
+            TCnext.activestep = True
+            TCnext.save()
+
+            result = {
+                'step':TC.step,
+                'id_gr':TC.id_gr,
+            }
+
+
+    return result
 
 
 if __name__ == '__main__':

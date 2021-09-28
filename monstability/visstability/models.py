@@ -140,26 +140,44 @@ class TestCaseNodes(models.Model):
                              help_text='id вершины',
                              max_length=10,
                              )
+    step = models.IntegerField('step',
+                              help_text='Шаг теста',
+                              default=1,
+                              )
     access = models.IntegerField('access',
                                  help_text='Доступность',
                                  default=1,
+                                 blank=True,
+                                 null=True,
                                  )
 
     stead = models.FloatField('stead',
                               help_text='Устойчивость',
                               default=1,
+                              blank=True,
+                              null=True,
                               )
     costdown = models.FloatField('costdown',
                                  help_text='Стоимость простоя',
                                  default=1,
+                                 blank=True,
+                                 null=True,
                                  )
     RTO = models.IntegerField('RTO',
                               help_text='Время, в течении которого узел может оставаться недоступным',
                               default=1,
+                              blank=True,
+                              null=True,
                               )
     RPO = models.IntegerField('RPO',
                               help_text='Максимальный период времени, за который могут быть потеряны данные узла',
                               default=1,
+                              blank=True,
+                              null=True,
+                              )
+    activestep = models.BooleanField('activestep',
+                              help_text='Активный шаг тест-кейса',
+                              default=False,
                               )
 
     def __str__(self):
