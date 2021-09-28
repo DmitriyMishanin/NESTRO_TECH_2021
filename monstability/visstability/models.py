@@ -85,9 +85,9 @@ class Nodes(models.Model):
         return f"{self.coordX:d} {self.coordY:d}"
 
     def description(self):
-        return f"дост.: {self.access}\n" \
-               f"уст.: {self.stead*100:.2f} %\n" \
-               f"стоим.: {self.costdown:.2f} руб.\n" \
+        return f"{self.label_gr}\n" \
+               f"Устойчивость: {self.stead*100:.2f} %\n" \
+               f"Стоим.простоя (в сут.): {self.costdown:,.2f} руб.\n" \
                f"RTO: {self.RTO} ч\n" \
                f"RPO: {self.RPO} ч"
 

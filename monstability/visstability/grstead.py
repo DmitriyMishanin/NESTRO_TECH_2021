@@ -31,9 +31,11 @@ TYPE_SERVICE = 'service'
 TYPE_AND = 'and'
 TYPE_OR = 'or'
 
-COLOR_GOOT = 'green'
-COLOR_WAR = 'orange'
-COLOR_ERR = 'red'
+COLOR_GREEN = 'green'
+COLOR_ORANGE = 'orange'
+COLOR_RED = 'red'
+COLOR_BLUE = 'blue'
+COLOR_YELLOW = 'yellow'
 
 class GStead:
     """ Класс графа устойчивости """
@@ -166,12 +168,16 @@ def grget_model(AG):
 
 def get_color(access, stead):
     ''' получить цвет узла '''
-    if not access or stead < 0.6:
-        return COLOR_ERR
-    elif stead < 0.9:
-        return COLOR_WAR
+    if not access or stead < 0.4:
+        return COLOR_RED
+    elif stead < 0.6:
+        return COLOR_ORANGE
+    elif stead < 0.8:
+        return COLOR_YELLOW
+    elif stead < 0.95:
+        return COLOR_GREEN
     else:
-        return COLOR_GOOT
+        return COLOR_BLUE
 
 def grput_model(AG):
     ''' выгрузка графа в базу данных '''
