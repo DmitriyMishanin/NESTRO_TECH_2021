@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <gexf xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
-  <meta lastmodifieddate="2021-09-24">
+  <meta lastmodifieddate="2021-09-26">
     <creator>NetworkX 2.6.3</creator>
   </meta>
   <graph defaultedgetype="directed" mode="static" name="">
@@ -20,32 +20,46 @@
       <attribute id="9" title="color" type="string" />
     </attributes>
     <nodes>
-      <node id="mt_3" label="port 1540">
+      <node id="it_7" label="15-VS-EUSAPP02">
         <attvalues>
-          <attvalue for="0" value="metric" />
+          <attvalue for="0" value="service" />
           <attvalue for="1" value="it" />
           <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.5" />
-          <attvalue for="4" value="366500.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
+          <attvalue for="3" value="1.0" />
+          <attvalue for="4" value="50000.0" />
+          <attvalue for="5" value="30" />
+          <attvalue for="6" value="-121" />
+          <attvalue for="7" value="12" />
+          <attvalue for="8" value="24" />
+          <attvalue for="9" value="green" />
         </attvalues>
       </node>
-      <node id="mt_9" label="ping">
+      <node id="it_9" label="Менеджер лицензий">
         <attvalues>
-          <attvalue for="0" value="metric" />
+          <attvalue for="0" value="service" />
           <attvalue for="1" value="it" />
           <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.5" />
-          <attvalue for="4" value="311000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
+          <attvalue for="3" value="1.0" />
+          <attvalue for="4" value="211000.0" />
+          <attvalue for="5" value="120" />
+          <attvalue for="6" value="-37" />
+          <attvalue for="7" value="3" />
+          <attvalue for="8" value="6" />
+          <attvalue for="9" value="green" />
+        </attvalues>
+      </node>
+      <node id="ot_1" label="ИЛИ">
+        <attvalues>
+          <attvalue for="0" value="or" />
+          <attvalue for="1" value="ot" />
+          <attvalue for="2" value="1" />
+          <attvalue for="3" value="0.9279999999999999" />
+          <attvalue for="4" value="100000.0" />
+          <attvalue for="5" value="220" />
+          <attvalue for="6" value="-184" />
+          <attvalue for="7" value="12" />
+          <attvalue for="8" value="24" />
+          <attvalue for="9" value="green" />
         </attvalues>
       </node>
       <node id="it_5" label="15-VS-EUSAPP01">
@@ -53,181 +67,195 @@
           <attvalue for="0" value="service" />
           <attvalue for="1" value="it" />
           <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.5" />
-          <attvalue for="4" value="733000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
+          <attvalue for="3" value="0.856" />
+          <attvalue for="4" value="50000.0" />
+          <attvalue for="5" value="140" />
+          <attvalue for="6" value="-252" />
+          <attvalue for="7" value="12" />
+          <attvalue for="8" value="24" />
+          <attvalue for="9" value="orange" />
         </attvalues>
       </node>
-      <node id="it_17" label="15-VS-ITAPP">
-        <attvalues>
-          <attvalue for="0" value="service" />
-          <attvalue for="1" value="it" />
-          <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.8" />
-          <attvalue for="4" value="111000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
-        </attvalues>
-      </node>
-      <node id="it_8" label="Кластер серверов-1">
-        <attvalues>
-          <attvalue for="0" value="service" />
-          <attvalue for="1" value="it" />
-          <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.5" />
-          <attvalue for="4" value="311000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
-        </attvalues>
-      </node>
-      <node id="bs_13" label="bs_13">
-        <attvalues>
-          <attvalue for="0" value="service" />
-          <attvalue for="1" value="bs" />
-          <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.21999999999999997" />
-          <attvalue for="4" value="111000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
-        </attvalues>
-      </node>
-      <node id="bs_15" label="ИС СНАБ">
-        <attvalues>
-          <attvalue for="0" value="service" />
-          <attvalue for="1" value="bs" />
-          <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.247" />
-          <attvalue for="4" value="100000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
-        </attvalues>
-      </node>
-      <node id="it_11" label="Сервис СНАБ">
-        <attvalues>
-          <attvalue for="0" value="service" />
-          <attvalue for="1" value="it" />
-          <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.25" />
-          <attvalue for="4" value="100000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
-        </attvalues>
-      </node>
-      <node id="it_10" label="Менеджер лицензий">
-        <attvalues>
-          <attvalue for="0" value="service" />
-          <attvalue for="1" value="it" />
-          <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.25" />
-          <attvalue for="4" value="211000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
-        </attvalues>
-      </node>
-      <node id="mt_16" label="ping">
+      <node id="mt_4" label="port 1540">
         <attvalues>
           <attvalue for="0" value="metric" />
           <attvalue for="1" value="it" />
           <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.8" />
+          <attvalue for="3" value="1.0" />
+          <attvalue for="4" value="50000.0" />
+          <attvalue for="5" value="-230" />
+          <attvalue for="6" value="-146" />
+          <attvalue for="7" value="12" />
+          <attvalue for="8" value="24" />
+          <attvalue for="9" value="green" />
+        </attvalues>
+      </node>
+      <node id="ot_5" label="И">
+        <attvalues>
+          <attvalue for="0" value="and" />
+          <attvalue for="1" value="ot" />
+          <attvalue for="2" value="1" />
+          <attvalue for="3" value="0.9712" />
+          <attvalue for="4" value="100000.0" />
+          <attvalue for="5" value="300" />
+          <attvalue for="6" value="-106" />
+          <attvalue for="7" value="12" />
+          <attvalue for="8" value="24" />
+          <attvalue for="9" value="green" />
+        </attvalues>
+      </node>
+      <node id="mt_9" label="port 1540">
+        <attvalues>
+          <attvalue for="0" value="metric" />
+          <attvalue for="1" value="it" />
+          <attvalue for="2" value="1" />
+          <attvalue for="3" value="1.0" />
+          <attvalue for="4" value="211000.0" />
+          <attvalue for="5" value="-220" />
+          <attvalue for="6" value="-34" />
+          <attvalue for="7" value="3" />
+          <attvalue for="8" value="6" />
+          <attvalue for="9" value="green" />
+        </attvalues>
+      </node>
+      <node id="ot_14" label="И">
+        <attvalues>
+          <attvalue for="0" value="and" />
+          <attvalue for="1" value="ot" />
+          <attvalue for="2" value="0" />
+          <attvalue for="3" value="1.0" />
           <attvalue for="4" value="111000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
+          <attvalue for="5" value="290" />
+          <attvalue for="6" value="40" />
+          <attvalue for="7" value="3" />
+          <attvalue for="8" value="6" />
+          <attvalue for="9" value="red" />
+        </attvalues>
+      </node>
+      <node id="it_17" label="15-VS-ZUPAPP01">
+        <attvalues>
+          <attvalue for="0" value="service" />
+          <attvalue for="1" value="it" />
+          <attvalue for="2" value="0" />
+          <attvalue for="3" value="1.0" />
+          <attvalue for="4" value="111000.0" />
+          <attvalue for="5" value="50" />
+          <attvalue for="6" value="119" />
+          <attvalue for="7" value="3" />
+          <attvalue for="8" value="6" />
+          <attvalue for="9" value="red" />
+        </attvalues>
+      </node>
+      <node id="it_8" label="Кластер серверов ЕУС">
+        <attvalues>
+          <attvalue for="0" value="service" />
+          <attvalue for="1" value="it" />
+          <attvalue for="2" value="1" />
+          <attvalue for="3" value="0.9712" />
+          <attvalue for="4" value="100000.0" />
+          <attvalue for="5" value="450" />
+          <attvalue for="6" value="-190" />
+          <attvalue for="7" value="12" />
+          <attvalue for="8" value="24" />
+          <attvalue for="9" value="green" />
+        </attvalues>
+      </node>
+      <node id="bs_15" label="ЕУС">
+        <attvalues>
+          <attvalue for="0" value="service" />
+          <attvalue for="1" value="bs" />
+          <attvalue for="2" value="1" />
+          <attvalue for="3" value="0.9712" />
+          <attvalue for="4" value="100000.0" />
+          <attvalue for="5" value="670" />
+          <attvalue for="6" value="-248" />
+          <attvalue for="7" value="12" />
+          <attvalue for="8" value="24" />
+          <attvalue for="9" value="green" />
+        </attvalues>
+      </node>
+      <node id="bs_18" label="ИС ЗУП">
+        <attvalues>
+          <attvalue for="0" value="service" />
+          <attvalue for="1" value="bs" />
+          <attvalue for="2" value="0" />
+          <attvalue for="3" value="1.0" />
+          <attvalue for="4" value="111000.0" />
+          <attvalue for="5" value="680" />
+          <attvalue for="6" value="57" />
+          <attvalue for="7" value="3" />
+          <attvalue for="8" value="6" />
+          <attvalue for="9" value="red" />
+        </attvalues>
+      </node>
+      <node id="mt_6" label="port 1540">
+        <attvalues>
+          <attvalue for="0" value="metric" />
+          <attvalue for="1" value="it" />
+          <attvalue for="2" value="0" />
+          <attvalue for="3" value="1.0" />
+          <attvalue for="4" value="111000.0" />
+          <attvalue for="5" value="-160" />
+          <attvalue for="6" value="89" />
+          <attvalue for="7" value="3" />
+          <attvalue for="8" value="6" />
           <attvalue for="9" value="red" />
         </attvalues>
       </node>
       <node id="ot_4" label="И">
         <attvalues>
-          <attvalue for="0" value="or" />
-          <attvalue for="1" value="ot" />
-          <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.5" />
-          <attvalue for="4" value="733000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
-        </attvalues>
-      </node>
-      <node id="ot_12" label="ИЛИ">
-        <attvalues>
           <attvalue for="0" value="and" />
           <attvalue for="1" value="ot" />
           <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.21999999999999997" />
-          <attvalue for="4" value="211000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
+          <attvalue for="3" value="0.856" />
+          <attvalue for="4" value="50000.0" />
+          <attvalue for="5" value="30" />
+          <attvalue for="6" value="-259" />
+          <attvalue for="7" value="12" />
+          <attvalue for="8" value="24" />
+          <attvalue for="9" value="orange" />
         </attvalues>
       </node>
-      <node id="ot_14" label="ИЛИ">
+      <node id="it_10" label="Кластер ЗУП">
         <attvalues>
-          <attvalue for="0" value="and" />
-          <attvalue for="1" value="ot" />
-          <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.247" />
-          <attvalue for="4" value="100000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
+          <attvalue for="0" value="service" />
+          <attvalue for="1" value="it" />
+          <attvalue for="2" value="0" />
+          <attvalue for="3" value="1.0" />
+          <attvalue for="4" value="111000.0" />
+          <attvalue for="5" value="480" />
+          <attvalue for="6" value="-23" />
+          <attvalue for="7" value="3" />
+          <attvalue for="8" value="6" />
           <attvalue for="9" value="red" />
         </attvalues>
       </node>
-      <node id="it_6" label="Сервис Б2">
+      <node id="it_6" label="15-VS-ZUPAPP03">
         <attvalues>
           <attvalue for="0" value="service" />
           <attvalue for="1" value="it" />
           <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.15" />
+          <attvalue for="3" value="1.0" />
           <attvalue for="4" value="211000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
+          <attvalue for="5" value="-40" />
+          <attvalue for="6" value="-16" />
+          <attvalue for="7" value="3" />
+          <attvalue for="8" value="6" />
+          <attvalue for="9" value="green" />
         </attvalues>
       </node>
       <node id="mt_1" label="CPU_%">
         <attvalues>
           <attvalue for="0" value="metric" />
           <attvalue for="1" value="it" />
-          <attvalue for="2" value="0" />
-          <attvalue for="3" value="0.5" />
-          <attvalue for="4" value="146600.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
+          <attvalue for="2" value="1" />
+          <attvalue for="3" value="0.67" />
+          <attvalue for="4" value="50000.0" />
+          <attvalue for="5" value="-60" />
+          <attvalue for="6" value="-326" />
+          <attvalue for="7" value="12" />
+          <attvalue for="8" value="24" />
+          <attvalue for="9" value="orange" />
         </attvalues>
       </node>
       <node id="mt_2" label="RAM %">
@@ -235,123 +263,104 @@
           <attvalue for="0" value="metric" />
           <attvalue for="1" value="it" />
           <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.5" />
-          <attvalue for="4" value="219900.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
+          <attvalue for="3" value="0.74" />
+          <attvalue for="4" value="50000.0" />
+          <attvalue for="5" value="-160" />
+          <attvalue for="6" value="-280" />
+          <attvalue for="7" value="12" />
+          <attvalue for="8" value="24" />
+          <attvalue for="9" value="orange" />
         </attvalues>
       </node>
-      <node id="bs_18" label="ИСТБ">
+      <node id="mt_3" label="port 1540">
         <attvalues>
-          <attvalue for="0" value="service" />
-          <attvalue for="1" value="bs" />
-          <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.8" />
-          <attvalue for="4" value="111000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
-        </attvalues>
-      </node>
-      <node id="it_7" label="Сервис Б1">
-        <attvalues>
-          <attvalue for="0" value="service" />
+          <attvalue for="0" value="metric" />
           <attvalue for="1" value="it" />
           <attvalue for="2" value="1" />
-          <attvalue for="3" value="0.15" />
-          <attvalue for="4" value="211000.0" />
-          <attvalue for="5" value="1" />
-          <attvalue for="6" value="1" />
-          <attvalue for="7" value="1" />
-          <attvalue for="8" value="1" />
-          <attvalue for="9" value="red" />
+          <attvalue for="3" value="1.0" />
+          <attvalue for="4" value="50000.0" />
+          <attvalue for="5" value="-120" />
+          <attvalue for="6" value="-207" />
+          <attvalue for="7" value="12" />
+          <attvalue for="8" value="24" />
+          <attvalue for="9" value="green" />
         </attvalues>
       </node>
     </nodes>
     <edges>
-      <edge source="mt_3" target="ot_4" id="2" weight="0.5">
+      <edge source="it_7" target="ot_1" id="it_7_1" weight="0.5">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
-      <edge source="mt_9" target="it_8" id="3" weight="0.6">
+      <edge source="it_9" target="ot_5" id="it_9_5" weight="0.6">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
-      <edge source="it_5" target="it_6" id="9" weight="0.3">
+      <edge source="it_9" target="ot_14" id="15" weight="0.5">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
-      <edge source="it_5" target="it_7" id="10" weight="0.3">
+      <edge source="ot_1" target="ot_5" id="11" weight="0.4">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
-      <edge source="it_5" target="it_8" id="11" weight="0.4">
+      <edge source="it_5" target="ot_1" id="it_5_1" weight="0.5">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
-      <edge source="it_17" target="bs_18" id="12" weight="1.0">
+      <edge source="mt_4" target="it_7" id="mt_4_7" weight="1.0">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
-      <edge source="it_8" target="it_10" id="13" weight="0.5">
+      <edge source="ot_5" target="it_8" id="ot_5_8" weight="1.0">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
-      <edge source="it_8" target="it_11" id="14" weight="0.5">
+      <edge source="mt_9" target="it_6" id="3" weight="1.0">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
-      <edge source="it_11" target="ot_14" id="15" weight="0.9">
+      <edge source="ot_14" target="it_10" id="ot_14_10" weight="1.0">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
-      <edge source="it_10" target="ot_12" id="16" weight="0.7">
+      <edge source="it_17" target="ot_14" id="13" weight="0.5">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
-      <edge source="mt_16" target="it_17" id="4" weight="1.0">
+      <edge source="it_8" target="bs_15" id="6" weight="1.0">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
+        </attvalues>
+      </edge>
+      <edge source="mt_6" target="it_17" id="mt_6_17" weight="1.0">
+        <attvalues>
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
       <edge source="ot_4" target="it_5" id="5" weight="1.0">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
-      <edge source="ot_12" target="ot_14" id="7" weight="0.1">
+      <edge source="it_10" target="bs_18" id="12" weight="1.0">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
-      <edge source="ot_12" target="bs_13" id="8" weight="1.0">
+      <edge source="it_6" target="it_9" id="it_6_9" weight="1.0">
         <attvalues>
-          <attvalue for="10" value="" />
-        </attvalues>
-      </edge>
-      <edge source="ot_14" target="bs_15" id="6" weight="1.0">
-        <attvalues>
-          <attvalue for="10" value="blue" />
-        </attvalues>
-      </edge>
-      <edge source="it_6" target="ot_12" id="18" weight="0.2">
-        <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
       <edge source="mt_1" target="ot_4" id="0" weight="0.2">
@@ -361,12 +370,12 @@
       </edge>
       <edge source="mt_2" target="ot_4" id="1" weight="0.3">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
-      <edge source="it_7" target="ot_12" id="17" weight="0.1">
+      <edge source="mt_3" target="ot_4" id="2" weight="0.5">
         <attvalues>
-          <attvalue for="10" value="" />
+          <attvalue for="10" value="red" />
         </attvalues>
       </edge>
     </edges>

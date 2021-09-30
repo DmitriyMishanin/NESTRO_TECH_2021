@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+    {% load static %}
+    {% block content %}
+    <main class="container">
+      <div class="text-center py-5 px-3">
+        <h1>ТАБЛИЦА УЗЛОВ ГРАФА УСТОЙЧИВОСТИ</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>IDGR</th>
+              <th>Label</th>
+              <th>Type</th>
+              <th>Layres</th>
+              <th>Access</th>
+              <th>Stead</th>
+              <th>Costdown</th>
+              <th>RTO</th>
+              <th>RPO</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for node in nodes %}
+            <tr>
+              <td>{{ node.id_gr }}</td>
+              <td>{{ node.label_gr }}</td>
+              <td>{{ node.type_gr }}</td>
+              <td>{{ node.layer }}</td>
+              <td>{{ node.access }}</td>
+              <td>{{ node.stead }}</td>
+              <td>{{ node.costdown }}</td>
+              <td>{{ node.RTO }}</td>
+              <td>{{ node.RPO }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+    {% endblock  %}
