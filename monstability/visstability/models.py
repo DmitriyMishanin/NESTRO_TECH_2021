@@ -92,7 +92,6 @@ class Nodes(models.Model):
             result += f"\nСтоим.простоя (в сут.): {self.costdown:,.2f} руб.\n" \
                f"RTO: {self.RTO} ч\n" \
                f"RPO: {self.RPO} ч"
-        print(f"{self.type_gr=}")
         return result
 
     def icon(self):
