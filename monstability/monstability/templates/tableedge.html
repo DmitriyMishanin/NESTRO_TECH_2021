@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+    {% load static %}
+    {% block content %}
+    <main class="container">
+      <div class="text-center py-5 px-3">
+        <h1>ТАБЛИЦА РЕБЕР ГРАФА УСТОЙЧИВОСТИ</h1>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>IDGR</th>
+              <th>Source</th>
+              <th>Target</th>
+              <th>Weight</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for edge in edges %}
+            <tr>
+              <td>{{ edge.id_gr }}</td>
+              <td>{{ edge.source }}</td>
+              <td>{{ edge.target }}</td>
+              <td>{{ edge.weight }}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+    {% endblock  %}
