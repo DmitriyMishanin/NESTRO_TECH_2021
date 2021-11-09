@@ -3,6 +3,7 @@ version: '3.7'
 services:
   nestrotech-www:
     build: ./
+    container_name: nesto_tech_2021
     command: gunicorn --bind 0.0.0.0:8000 monstability.wsgi:application
     environment:
       - DBPASSWORD=P@ssw0rd
