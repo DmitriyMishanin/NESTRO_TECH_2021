@@ -9,6 +9,7 @@ services:
       - DBPASSWORD=P@ssw0rd
       - DBHOST=qre_db
       - DBPORT=5432
+      - DJANGO_DEBUG=false
     volumes:
       - .:/usr/src/app/
       - static_volume:/usr/src/app/monstability/static

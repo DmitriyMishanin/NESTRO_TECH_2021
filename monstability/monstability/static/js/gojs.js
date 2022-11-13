@@ -537,7 +537,7 @@ function init() {
     };
 
     jQuery.ajax({
-        url: "http://dh.bitc.ru:8021/api/v1/nodes/"+nodeData.key+"/",
+        url: "https://dmishanin.ru:8022/api/v1/nodes/"+nodeData.key+"/",
 //        url: "http://127.0.0.1:8000/api/v1/nodes/"+nodeData.key+"/",
         type: "PUT",
         contentType: "application/json; charset=utf-8",
@@ -668,7 +668,7 @@ function onSelectionChanged() {
 }
 function load(){
   $.ajax({
-    url: "http://dh.bitc.ru:8021/api/v1/nodesview/?format=json",
+    url: "https://dmishanin.ru:8022/api/v1/nodesview/?format=json",
 //    url: "http://127.0.0.1:8000/api/v1/nodesview/?format=json",
     dataType: "html",
     success: function(data){
@@ -683,7 +683,7 @@ function load(){
 }
 function reload(){
   $.ajax({
-    url: "http://dh.bitc.ru:8021/api/v1/nodesview/?format=json",
+    url: "https://dmishanin.ru:8022/api/v1/nodesview/?format=json",
 //    url: "http://127.0.0.1:8000/api/v1/nodesview/?format=json",
     dataType: "html",
     success: function(data){
@@ -699,7 +699,7 @@ function steptest(){
   $("#steptest").attr("disabled", "disabled");
   $("#steptest").html("Загрузка...");
   $.ajax({
-    url: "http://dh.bitc.ru:8021/api/v1/steptest/?format=json",
+    url: "https://dmishanin.ru:8022/api/v1/steptest/?format=json",
 //    url: "http://127.0.0.1:8000/api/v1/steptest/?format=json",
     dataType: "json",
     success: function(data){
