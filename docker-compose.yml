@@ -1,10 +1,10 @@
 version: '3.7'
 
 services:
-  nestrotech-www:
+  snestrotech:
     build: ./
-    container_name: nesto_tech_2021
-    command: gunicorn --bind 0.0.0.0:8000 monstability.wsgi:application
+    container_name: con-nesto-tech-2021
+    command: gunicorn --bind 0.0.0.0:8011 monstability.wsgi:application
     environment:
       - DBPASSWORD=P@ssw0rd
       - DBHOST=qre_db
@@ -12,16 +12,20 @@ services:
       - DJANGO_DEBUG=false
     volumes:
       - .:/usr/src/app/
-      - static_volume:/usr/src/app/monstability/static
+      #- static_volume:/usr/src/app/monstability/static
+      - npm_static_volume:/vol/web/static
     expose:
-      - 8000
+      - 8011
     networks:
-      - qre_net
+      - npm_net
 networks:
-  qre_net:
+  npm_net:
     external: true
-    name: qrestimatenet
+    name: npmnet
+#volumes:
+#  static_volume:
+#    external: true
+#    name: statiic_nestrotech
 volumes:
-  static_volume:
+  npm_static_volume:
     external: true
-    name: static_nestrotech
